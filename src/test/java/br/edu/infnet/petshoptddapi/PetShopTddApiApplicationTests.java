@@ -1,4 +1,4 @@
-package br.edu.infnet.pet_shop_tdd_api;
+package br.edu.infnet.petshoptddapi;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

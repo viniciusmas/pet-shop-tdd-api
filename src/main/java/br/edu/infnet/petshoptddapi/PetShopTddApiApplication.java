@@ -1,4 +1,4 @@
-package br.edu.infnet.pet_shop_tdd_api;
+package br.edu.infnet.petshoptddapi;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
