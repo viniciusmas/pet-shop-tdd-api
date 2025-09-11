@@ -4,18 +4,63 @@ import java.time.LocalDateTime;
 
 public class Agendamento {
 
-    private Integer id;
+    private String cliente;
 
-    private Cliente cliente;
+    private String pet;
 
-    private Pet pet;
+    private String servico;
 
-    private Servico servico;
-
-    private Funcionario funcionario;
+    private String funcionario;
 
     private LocalDateTime dataHora;
 
-    private Boolean status;
+    private StatusAgendamento status;
 
+    public String getCliente() {
+        return cliente;
+    }
+
+    public void setCliente(String cliente) {
+        this.cliente = cliente;
+    }
+
+    public String getPet() {
+        return pet;
+    }
+
+    public void setPet(String pet) {
+        this.pet = pet;
+    }
+
+    public String getServico() {
+        return servico;
+    }
+
+    public void setServico(String servico) {
+        this.servico = servico;
+    }
+
+    public String getFuncionario() {
+        return funcionario;
+    }
+
+    public void setFuncionario(String funcionario) {
+        this.funcionario = funcionario;
+    }
+
+    public LocalDateTime getDataHora() {
+        return dataHora;
+    }
+
+    public void setDataHora(LocalDateTime dataHora) {
+        this.dataHora = dataHora;
+    }
+
+    public StatusAgendamento getStatus() {
+        return status;
+    }
+
+    public void setStatus(StatusAgendamento status) {
+        this.status = status;
+    }
 }
