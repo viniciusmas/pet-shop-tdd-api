@@ -8,13 +8,26 @@ public class Agendamento {
 
     private String pet;
 
-    private String servico;
+    private TipoServico servico;
 
     private String funcionario;
 
     private LocalDateTime dataHora;
 
-    private StatusAgendamento status;
+    private StatusAgendamento status = StatusAgendamento.DISPONIVEL;
+
+    public Agendamento() {
+        this.setCliente(null);
+        this.setPet(null);
+        this.setServico(null);
+        this.setFuncionario(null);
+        this.setDataHora(LocalDateTime.now());
+        this.setStatus(StatusAgendamento.DISPONIVEL);
+    }
+
+    public void verificarDisponibilidade(LocalDateTime dataHora) {
+        this.setStatus(LocalDateTime.now().equals(dataHora) ? StatusAgendamento.DISPONIVEL : StatusAgendamento.AGENDADO);
+    }
 
     public String getCliente() {
         return cliente;
@@ -32,11 +45,11 @@ public class Agendamento {
         this.pet = pet;
     }
 
-    public String getServico() {
+    public TipoServico getServico() {
         return servico;
     }
 
-    public void setServico(String servico) {
+    public void setServico(TipoServico servico) {
         this.servico = servico;
     }
 
