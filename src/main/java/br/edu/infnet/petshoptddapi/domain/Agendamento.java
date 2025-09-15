@@ -29,6 +29,10 @@ public class Agendamento {
         this.setStatus(LocalDateTime.now().equals(dataHora) ? StatusAgendamento.DISPONIVEL : StatusAgendamento.AGENDADO);
     }
 
+    public Boolean verificarDados() {
+        return getCliente() != null && getPet() != null && getServico() != null && getFuncionario() != null;
+    }
+
     public String getCliente() {
         return cliente;
     }
