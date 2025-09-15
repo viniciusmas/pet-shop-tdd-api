@@ -1,30 +1,46 @@
 # pet-shop-tdd-api
 API de Teste com TDD
 
-# Getting Started
+## Funcionalidade Agendamento
 
-### Reference Documentation
+Essa API vai se integrar com pet-shop-api para realizar os agendamentos e organizar os 
+horários dos serviços (banho, tosa etc.), evitando conflitos de agenda e garantindo 
+que cada pet seja atendido corretamente.
 
-For further reference, please consider the following sections:
+## Classes de Modelo e Serviços
 
-* [Official Apache Maven documentation](https://maven.apache.org/guides/index.html)
-* [Spring Boot Maven Plugin Reference Guide](https://docs.spring.io/spring-boot/3.5.5/maven-plugin)
-* [Create an OCI image](https://docs.spring.io/spring-boot/3.5.5/maven-plugin/build-image.html)
-* [Spring Web](https://docs.spring.io/spring-boot/3.5.5/reference/web/servlet.html)
+### Agendamento
+Contém as informações para realizar o agendamento (Nome do cliente, nome do pet, nome do funcionário, o tipo do serviço, etc.)
 
-### Guides
+### StatusAgendamento
+Enum contendo os status do agendamento: 
+* AGENDADO
+* CONCLUIDO
+* CANCELADO
+* DISPONIVEL
 
-The following guides illustrate how to use some features concretely:
+### TipoServico
+Enum contendo os tipos de serviços: 
+* BANHO
+* TOSA
+* BANHO_TOSA
 
-* [Building a RESTful Web Service](https://spring.io/guides/gs/rest-service/)
-* [Serving Web Content with Spring MVC](https://spring.io/guides/gs/serving-web-content/)
-* [Building REST services with Spring](https://spring.io/guides/tutorials/rest/)
+### AgendamentoService
+Classe de serviço que contém o método agendar que realiza o agendamento.
 
-### Maven Parent overrides
+## Classes de testes
 
-Due to Maven's design, elements are inherited from the parent POM to the project POM.
-While most of the inheritance is fine, it also inherits unwanted elements like `<license>` and `<developers>` from the
-parent.
-To prevent this, the project POM contains empty overrides for these elements.
-If you manually switch to a different parent and actually want the inheritance, you need to remove those overrides.
+### AgendamnetoTest
+Essa classe tem os seguintes teste:
+* Deve verificar a disponibilidade de horário na agenda quando a data for atual
+* Deve verificar a disponibilidade de horário na agenda quando a data for futura
+* Deve verificar se cliente existe antes de agendar
+* Deve verificar se pet existe antes de agendar
+* Deve verificar se funcionário existe antes de agendar
+* Deve verificar se serviço existe antes de agendar
 
+### AgendamentoServiceTest
+Essa classe tem os seguintes teste:
+* Deve lançar um IllegalArgumentException quando chamar o método agendar
+* Deve realizar um novo agendamento quando chamar o método agendar
+* Deve evitar um novo agendamento quando os dados forem inválidos
