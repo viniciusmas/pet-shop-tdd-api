@@ -16,9 +16,11 @@ class AgendamentoTest {
     @BeforeEach
     void init() {
         agendamento = new Agendamento();
-        agendamento.setCliente("Vinicius");
+        agendamento.setIdCliente(1);
+        agendamento.setNomeCliente("Vinicius");
         agendamento.setPet("Spake");
-        agendamento.setFuncionario("Luana");
+        agendamento.setIdFuncionario(1);
+        agendamento.setNomeFuncionario("Luana");
         agendamento.setServico(TipoServico.BANHO);
         agendamento.setDataHora(LocalDateTime.now());
         agendamento.setStatus(StatusAgendamento.AGENDADO);
@@ -28,9 +30,11 @@ class AgendamentoTest {
     @DisplayName("Deve verificar a disponibilidade de horário na agenda quando a data for atual")
     void deveVerificarDisponibilidade_quandoDataForAtual() {
         agendamento = new Agendamento();
-        agendamento.setCliente("Gustavo");
+        agendamento.setIdCliente(2);
+        agendamento.setNomeCliente("Gustavo");
         agendamento.setPet("Bob");
-        agendamento.setFuncionario("João");
+        agendamento.setIdFuncionario(3);
+        agendamento.setNomeFuncionario("João");
         agendamento.setServico(TipoServico.BANHO);
         agendamento.setDataHora(LocalDateTime.now());
         agendamento.setStatus(StatusAgendamento.AGENDADO);
@@ -42,9 +46,11 @@ class AgendamentoTest {
     @DisplayName("Deve verificar a disponibilidade de horário na agenda quando a data for futura")
     void deveVerificarDisponibilidade_quandoDataForFutura() {
         agendamento = new Agendamento();
-        agendamento.setCliente("Mario");
+        agendamento.setIdCliente(3);
+        agendamento.setNomeCliente("Mario");
         agendamento.setPet("Rafa");
-        agendamento.setFuncionario("Pedro");
+        agendamento.setIdFuncionario(4);
+        agendamento.setNomeFuncionario("Pedro");
         agendamento.setServico(TipoServico.BANHO);
         agendamento.setDataHora(LocalDateTime.now().minusDays(+1));
         agendamento.setStatus(StatusAgendamento.AGENDADO);
@@ -55,7 +61,7 @@ class AgendamentoTest {
     @Test
     @DisplayName("Deve verificar se cliente existe antes de agendar")
     void deveVerificarExistenciaCliente_quandoAgendar() {
-        Assertions.assertNotNull(agendamento.getCliente());
+        Assertions.assertNotNull(agendamento.getNomeCliente());
     }
 
     @Test
@@ -67,7 +73,7 @@ class AgendamentoTest {
     @Test
     @DisplayName("Deve verificar se funcionário existe antes de agendar")
     void deveVerificarExistenciaFuncionario_quandoAgendar() {
-        Assertions.assertNotNull(agendamento.getFuncionario());
+        Assertions.assertNotNull(agendamento.getNomeFuncionario());
     }
 
     @Test

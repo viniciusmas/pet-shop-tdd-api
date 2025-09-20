@@ -1,26 +1,39 @@
 package br.edu.infnet.petshoptddapi.domain;
 
+import lombok.Getter;
+import lombok.Setter;
+
 import java.time.LocalDateTime;
 
+@Getter
+@Setter
 public class Agendamento {
 
-    private String cliente;
+    private Integer idCliente;
+
+    private String nomeCliente;
 
     private String pet;
 
     private TipoServico servico;
 
-    private String funcionario;
+    private Integer idFuncionario;
+
+    private String nomeFuncionario;
 
     private LocalDateTime dataHora;
 
     private StatusAgendamento status = StatusAgendamento.DISPONIVEL;
 
+    private String linkGoogleCalendar; // 🔗 Link do evento no Google
+
     public Agendamento() {
-        this.setCliente(null);
+        this.setIdCliente(null);
+        this.setNomeCliente(null);
         this.setPet(null);
         this.setServico(null);
-        this.setFuncionario(null);
+        this.setIdFuncionario(null);
+        this.setNomeFuncionario(null);
         this.setDataHora(LocalDateTime.now());
         this.setStatus(StatusAgendamento.DISPONIVEL);
     }
@@ -30,54 +43,6 @@ public class Agendamento {
     }
 
     public Boolean verificarDados() {
-        return getCliente() != null && getPet() != null && getServico() != null && getFuncionario() != null;
-    }
-
-    public String getCliente() {
-        return cliente;
-    }
-
-    public void setCliente(String cliente) {
-        this.cliente = cliente;
-    }
-
-    public String getPet() {
-        return pet;
-    }
-
-    public void setPet(String pet) {
-        this.pet = pet;
-    }
-
-    public TipoServico getServico() {
-        return servico;
-    }
-
-    public void setServico(TipoServico servico) {
-        this.servico = servico;
-    }
-
-    public String getFuncionario() {
-        return funcionario;
-    }
-
-    public void setFuncionario(String funcionario) {
-        this.funcionario = funcionario;
-    }
-
-    public LocalDateTime getDataHora() {
-        return dataHora;
-    }
-
-    public void setDataHora(LocalDateTime dataHora) {
-        this.dataHora = dataHora;
-    }
-
-    public StatusAgendamento getStatus() {
-        return status;
-    }
-
-    public void setStatus(StatusAgendamento status) {
-        this.status = status;
+        return getIdCliente() != null && getNomeCliente() != null && getPet() != null && getServico() != null && getIdFuncionario() != null && getNomeFuncionario() != null;
     }
 }

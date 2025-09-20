@@ -21,9 +21,11 @@ class AgendamentoServiceTest {
     void init() {
         agendamentoService = new AgendamentoService();
         agendamento = new Agendamento();
-        agendamento.setCliente("Vinicius");
+        agendamento.setIdCliente(1);
+        agendamento.setNomeCliente("Vinicius");
         agendamento.setPet("Spake");
-        agendamento.setFuncionario("Luana");
+        agendamento.setIdFuncionario(1);
+        agendamento.setNomeFuncionario("Luana");
         agendamento.setServico(TipoServico.BANHO);
         agendamento.setDataHora(LocalDateTime.now());
         agendamento.setStatus(StatusAgendamento.AGENDADO);
