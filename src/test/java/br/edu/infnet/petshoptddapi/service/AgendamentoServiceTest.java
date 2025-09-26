@@ -14,12 +14,15 @@ import java.time.LocalDateTime;
 @SpringBootTest
 class AgendamentoServiceTest {
 
-    private AgendamentoService agendamentoService;
+    private final AgendamentoService agendamentoService;
     private Agendamento agendamento;
+
+    AgendamentoServiceTest(AgendamentoService agendamentoService) {
+        this.agendamentoService = agendamentoService;
+    }
 
     @BeforeEach
     void init() {
-        agendamentoService = new AgendamentoService();
         agendamento = new Agendamento();
         agendamento.setIdCliente(1);
         agendamento.setNomeCliente("Vinicius");

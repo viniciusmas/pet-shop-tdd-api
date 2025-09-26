@@ -1,5 +1,6 @@
 package br.edu.infnet.petshoptddapi.domain;
 
+import br.edu.infnet.petshoptddapi.dto.AgendamentoDTO;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -25,7 +26,9 @@ public class Agendamento {
 
     private StatusAgendamento status = StatusAgendamento.DISPONIVEL;
 
-    private String linkGoogleCalendar; // 🔗 Link do evento no Google
+    private String googleEventId;
+
+    private String linkGoogleCalendar;
 
     public Agendamento() {
         this.setIdCliente(null);
@@ -36,6 +39,17 @@ public class Agendamento {
         this.setNomeFuncionario(null);
         this.setDataHora(LocalDateTime.now());
         this.setStatus(StatusAgendamento.DISPONIVEL);
+    }
+
+    public Agendamento(AgendamentoDTO agendamentoDTO) {
+        this.setIdCliente(agendamentoDTO.getIdCliente());
+        this.setNomeCliente(agendamentoDTO.getNomeCliente());
+        this.setPet(agendamentoDTO.getPet());
+        this.setServico(TipoServico.valueOf(agendamentoDTO.getServico()));
+        this.setIdFuncionario(agendamentoDTO.getIdFuncionario());
+        this.setNomeFuncionario(agendamentoDTO.getNomeFuncionario());
+        this.setDataHora(agendamentoDTO.getDataHora());
+        this.setStatus(StatusAgendamento.valueOf(agendamentoDTO.getStatus()));
     }
 
     public void verificarDisponibilidade(LocalDateTime dataHora) {

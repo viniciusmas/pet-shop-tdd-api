@@ -1,0 +1,28 @@
+package br.edu.infnet.petshoptddapi.dto;
+
+import lombok.Getter;
+import lombok.Setter;
+
+import java.time.LocalDateTime;
+
+@Getter
+@Setter
+public class AgendamentoDTO {
+
+    private Integer idCliente;
+
+    private String nomeCliente;
+
+    private String pet;
+
+    private String servico;
+
+    private Integer idFuncionario;
+
+    private String nomeFuncionario;
+
+    private LocalDateTime dataHora;
+
+    private String status;
+
+}
