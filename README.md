@@ -1,4 +1,4 @@
-o# pet-shop-agendamento-api
+# pet-shop-agendamento-api
 API de Teste com TDD
 
 ## Funcionalidade Agendamento
