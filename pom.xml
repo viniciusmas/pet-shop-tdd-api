@@ -9,9 +9,9 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>br.edu.infnet</groupId>
-	<artifactId>pet-shop-tdd-api</artifactId>
+	<artifactId>pet-shop-agendamento-api</artifactId>
 	<version>1.0.0</version>
-	<name>pet-shop-tdd-api</name>
+	<name>pet-shop-agendamento-api</name>
 	<description>API de Teste com TDD</description>
 	<url/>
 	<licenses>
