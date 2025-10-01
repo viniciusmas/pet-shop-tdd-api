@@ -1,6 +1,10 @@
 package br.edu.infnet.petshoptddapi.domain;
 
-import br.edu.infnet.petshoptddapi.dto.AgendamentoDTO;
+import br.edu.infnet.petshoptddapi.dto.AgendamentoRequestDTO;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -8,7 +12,12 @@ import java.time.LocalDateTime;
 
 @Getter
 @Setter
+@Entity
 public class Agendamento {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Integer id;
 
     private Integer idCliente;
 
@@ -41,15 +50,15 @@ public class Agendamento {
         this.setStatus(StatusAgendamento.DISPONIVEL);
     }
 
-    public Agendamento(AgendamentoDTO agendamentoDTO) {
-        this.setIdCliente(agendamentoDTO.getIdCliente());
-        this.setNomeCliente(agendamentoDTO.getNomeCliente());
-        this.setPet(agendamentoDTO.getPet());
-        this.setServico(TipoServico.valueOf(agendamentoDTO.getServico()));
-        this.setIdFuncionario(agendamentoDTO.getIdFuncionario());
-        this.setNomeFuncionario(agendamentoDTO.getNomeFuncionario());
-        this.setDataHora(agendamentoDTO.getDataHora());
-        this.setStatus(StatusAgendamento.valueOf(agendamentoDTO.getStatus()));
+    public Agendamento(AgendamentoRequestDTO agendamentoRequestDTO) {
+        this.setIdCliente(agendamentoRequestDTO.getIdCliente());
+        this.setNomeCliente(agendamentoRequestDTO.getNomeCliente());
+        this.setPet(agendamentoRequestDTO.getPet());
+        this.setServico(TipoServico.valueOf(agendamentoRequestDTO.getServico()));
+        this.setIdFuncionario(agendamentoRequestDTO.getIdFuncionario());
+        this.setNomeFuncionario(agendamentoRequestDTO.getNomeFuncionario());
+        this.setDataHora(agendamentoRequestDTO.getDataHora());
+        this.setStatus(StatusAgendamento.valueOf(agendamentoRequestDTO.getStatus()));
     }
 
     public void verificarDisponibilidade(LocalDateTime dataHora) {

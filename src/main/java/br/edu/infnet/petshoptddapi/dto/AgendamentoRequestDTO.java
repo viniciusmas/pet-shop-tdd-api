@@ -7,7 +7,7 @@ import java.time.LocalDateTime;
 
 @Getter
 @Setter
-public class AgendamentoDTO {
+public class AgendamentoRequestDTO {
 
     private Integer idCliente;
 
